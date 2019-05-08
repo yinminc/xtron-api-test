@@ -59,8 +59,9 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="63" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2" />
+    <option name="y" value="-861" />
     <option name="width" value="1280" />
     <option name="height" value="777" />
   </component>
