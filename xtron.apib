@@ -1,0 +1,679 @@
+FORMAT: 1A
+HOST: https://demo.lyrasoft.net/xtron/api
+
+# Xtron
+這是 Xtron 健身房 APP 與後台串接的 API。
+
+NOTE: This document is a **work in progress**.
+
+## Group User
+
+Resources related to users in the API.
+
+## User [/users/{user_id}]
+
+A User object has the following attributes:
+
++ id - user id
++ name - user name
++ email - user email
++ avatar - user avatar
++ assessment - it is a json data
++ reset_token - to reset password
++ state - user state
++ login_count - times of user login
++ login_amount - the total time of user login
++ last_login
++ resting
++ weight_training - times of user doing weight training.
++ aerobic - times of user doing aerobic.
++ group
++ created
++ modified
+
++ Parameters
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+
+### View a User Detail [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+        token: bearer tGzv3JOkF0XG5Qx2TlKWIA
+
+    + Body
+
+        {
+            "id": 1,
+            "name": "Ann",
+            "email": "example@example.com",
+            "avatar": "",
+            "assessment"": [
+                {
+                    "question": "是否大於45歲？",
+                    "answer": "是"
+                }, {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "否"
+                }, {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "不確定"
+                }
+            ],
+            "reset_token": "",
+            "state": 1,
+            "login_count": 134,
+            "login_amount": 4567,
+            "last_login": "2018-12-12T08:40:51.620Z",
+            "resting": 56,
+            "weight_training": 543,
+            "aerobic": 445,
+            "group": "高危險族群",
+            "created": "2018-11-11T08:40:51.620Z"
+            "modified": "2019-01-11T08:40:51.620Z",
+            "membership": [
+                {
+                    "store_id": 1,
+                    "start_date": "2018-12-12T08:40:51.620Z",
+                    "end_date": "2019-12-12T08:40:51.620Z",
+                    "created": "2018-12-12T08:40:51.620Z",
+                    "modified": "2019-01-12T08:40:51.620Z"
+                },
+                {
+                    "store_id": 2,
+                    "start_date": "2018-12-12T08:40:51.620Z",
+                    "end_date": "2019-12-12T08:40:51.620Z",
+                    "created": "2018-12-12T08:40:51.620Z",
+                    "modified": "2019-01-12T08:40:51.620Z"
+                }
+            ]
+        }
+
++ Parameters
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+
+### Change User's Detail [POST]
+
++ Request 200 (application/json)
+
+    + Headers
+
+        token: bearer tGzv3JOkF0XG5Qx2TlKWIA
+
+    + Body
+
+        {
+            "id": 1,
+            "name": "Ann",
+            "email": "example@example.com",
+            "avatar": "",
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+        {
+            "id": 1,
+            "name": "Ann",
+            "email": "example@example.com",
+            "avatar": "",
+        }
+
+### Choose the answer of user assessment [POST]
+
++ assessment (array[object])
++ question (string) - The question
++ answer (string) - the user answer of question.
+
++ Request (application/json)
+
+        {
+            "id": 1,
+            "assessment"": [
+                {
+                    "question": "是否大於45歲？",
+                    "answer": "是"
+                }, {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "否"
+                }, {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "不確定"
+                }
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            token: bearer tGzv3JOkF0XG5Qx2TlKWIA
+            Location: /users/1
+
+    + Body
+
+            {
+                "id": 1,
+                "assessment"": [
+                    {
+                        "question": "是否大於45歲？",
+                        "answer": "是"
+                    }, {
+                        "question": "是否有心臟遺傳疾病？",
+                        "answer": "否"
+                    }, {
+                        "question": "是否有心臟遺傳疾病？",
+                        "answer": "不確定"
+                    }
+                ]
+            }
+
+## Group Store
+
+Resources related to store in the API.
+
+## Store [/stores/{store_id}]
+
+A Store object has the following attributes:
+
++ id - store id
++ name - store name
++ address - store address
++ phone - store phone
++ business_hour - business hour of store
++ description - description of store
++ state - store state
++ created
++ modified
+
++ Parameters
+    + store_id: 1 (required, number) - ID of the store in form of an integer
+
+### View a Store Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "永和店",
+            "address": "新北市中和區中和路",
+            "phone": "0298408584",
+            "business_hour": "9:00 ~ 22:00",
+            "description": "近捷運站，交通便利",
+            "state": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
++ Parameters
+    + store_id: 1 (required, number) - ID of the store in form of an integer
+
+### List All Stores [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "永和店",
+                "address": "新北市中和區中和路",
+                "phone": "0298408584",
+                "business_hour": "9:00 ~ 22:00",
+                "description": "近捷運站，交通便利",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            },
+            {
+                "id": 2,
+                "name": "永和店",
+                "address": "新北市中和區中和路",
+                "phone": "0298408584",
+                "business_hour": "9:00 ~ 22:00",
+                "description": "近捷運站，交通便利",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            }
+        ]
+
+## Group Inbody
+
+Resources related to inbody in the API.
+
+## Inbody [/inbodies/{user_id}/{inbody_id}]
+
+A Inbody object has the following attributes:
+
++ id - inbody data id
++ type - measuring or target
++ height - user inbody height data
++ weight - user inbody weight data
++ fat - user inbody fat data
++ water - user inbody water data
++ muscle - user inbody muscle data
++ created
++ modified
++ user_id
+
++ Parameters
+    + inbody_id: 1 (required, number) - ID of the inbody in form of an integer
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+
+### View a Inbody Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "type": "target"
+            "height": "166",
+            "weight": "44",
+            "fat": "20",
+            "water":  "78",
+            "muscle": "10",
+            "user_id": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
++ Parameters
+    + inbody_id: 1 (required, number) - ID of the inbody in form of an integer
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+
+### Change data of inbody [POST]
+
++ Request 200 (application/json)
+
+        {
+            "id": 1,
+            "type": "target"
+            "height": "166",
+            "weight": "",
+            "fat": "",
+            "water":  "",
+            "muscle": "",
+            "user_id": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id": 1,
+            "type": "target"
+            "height": "166",
+            "weight": "44",
+            "fat": "20",
+            "water":  "78",
+            "muscle": "10",
+            "user_id": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
+## inbodies [/inbodies]
+
+### List All Inbodies [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "type": "measuring"
+                "height": "166",
+                "weight": "44",
+                "fat": "20",
+                "water":  "78",
+                "muscle": "20",
+                "user_id": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            },
+            {
+                "id": 2,
+                "type": "measuring"
+                "height": "176",
+                "weight": "74",
+                "fat": "23",
+                "water":  "75",
+                "muscle": "30",
+                "user_id": 5,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            }
+        ]
+
+## Group Body
+
+Resources related to body in the API.
+
+## body [/bodies/{body_id}]
+
+A body object has the following attributes:
+
++ id - body id
++ name - body name
++ description - description of body
++ state - body state
++ created
++ modified
+
++ Parameters
+    + body_id: 1 (required, number) - ID of the body in form of an integer
+
+### View a body Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "手部",
+            "description": "利用手部進行運動",
+            "state": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
+## bodies [/bodies]
+
+### List All Bodies [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "手部",
+                "description": "利用手部肌肉進行運動",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            },
+            {
+                "id": 2,
+                "name": "胸部",
+                "description": "利用胸部肌肉進行運動",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            }
+        ]
+
+## Group Equipment
+
+Resources related to Equipment in the API.
+
+## Equipment [/equipments/{equipment_id}]
+
+A equipment object has the following attributes:
+
++ id - equipment id
++ name - equipment name
++ code - equipment code
++ type - equipment type
++ description - description of equipment
++ instruction - instruction of equipment
++ image - image of equipment
++ state - body state
++ created
++ modified
+
++ Parameters
+    + equipment_id: 1 (required, number) - ID of the equipment in form of an integer
+
+### View a equipment Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "多功能重量訓練機",
+            "code": "GRT3412",
+            "type": "machine",
+            "description": "全身皆可訓練，適合居家空間健身房",
+            "instruction": "依個人使用強化於手臂、腹部或身體其他部位",
+            "image": "",
+            "state": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
+## equipments [/equipments]
+
+### List All equipments [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "多功能重量訓練機",
+                "code": "GRT3412",
+                "type": "machine",
+                "description": "全身皆可訓練，適合居家空間健身房",
+                "instruction": "依個人使用強化於手臂、腹部或身體其他部位",
+                "image": "",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            },
+            {
+                "id": 2,
+                "name": "多功能重量訓練機",
+                "code": "GRT3415",
+                "type": "machine",
+                "description": "全身皆可訓練，適合居家空間健身房",
+                "instruction": "依個人使用強化於手臂、腹部或身體其他部位",
+                "image": "",
+                "state": 0,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            }
+        ]
+
+## Group Exercise
+
+Resources related to exercise in the API.
+
+## exercise [/exercises/{exercise_id}]
+
+A exercise object has the following attributes:
+
++ id - exercise id
++ name - exercise name
++ state - exercise state
++ created
++ modified
+
++ Parameters
+    + exercise_id: 1 (required, number) - ID of the body in form of an integer
+
+### View a exercise Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "向上挺舉",
+            "state": 1,
+            "created": "2018-12-12T08:40:51.620Z",
+            "modified": "2018-12-19T08:40:51.620Z"
+        }
+
+## exercises [/exercises]
+
+### List All Exercises [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "向上挺舉",
+                "state": 1,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            },
+            {
+                "id": 2,
+                "name": "向下擺手",
+                "state": 0,
+                "created": "2018-12-12T08:40:51.620Z",
+                "modified": "2018-12-19T08:40:51.620Z"
+            }
+        ]
+
+## Group Weight Training Histories
+
+Resources related to Weight Training Histories in the API.
+
+## Weight Training Histories [/weight/histories/{user_id}/{training_id}]
+
+A exercise object has the following attributes:
+
++ id - exercise id
++ user_id - user id
++ equipment_id - equipment id
++ body_id - body id
++ exercise_id - exercise id
++ total_time - weight training total time
++ training_time - a set of weight training time
++ rest_time - reset time
++ weight - training weight
++ repetition - times of weight training
++ set - times of weight training set
++ created
+
++ Parameters
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+    + training_id: 1 (required, number) - ID of the weight training in form of an integer
+
+### View a weight training Detail [GET]
+
++ Response 200 (application/json)
+
+    {
+        "id": 1,
+        "user_id": 1,
+        "equipment_id": 1,
+        "body_id": 1,
+        "exercise_id": 1,
+        "total_time": "4423",
+        "training_time": "42",
+        "rest_time": "34",
+        "weight": "40",
+        "repetition": "4",
+        "set": "4",
+        "created: "2018-12-12T08:40:51.620Z"
+    }
+
+## Weight Training Histories [/weight/histories]
+
+### List All Weight Training Histories [GET]
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 1,
+            "user_id": 1,
+            "equipment_id": 1,
+            "body_id": 1,
+            "exercise_id": 1,
+            "total_time": "4423",
+            "training_time": "42",
+            "rest_time": "34",
+            "weight": "40",
+            "repetition": "4",
+            "set": "4",
+            "created: "2018-12-12T08:40:51.620Z"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "equipment_id": 5,
+            "body_id": 6,
+            "exercise_id": 3,
+            "total_time": "4523",
+            "training_time": "22",
+            "rest_time": "36",
+            "weight": "30",
+            "repetition": "5",
+            "set": "3",
+            "created: "2018-12-15T08:40:51.620Z"
+        }
+    ]
+
+## Group Aerobic Exercise Histories
+
+Resources related to Aerobic Exercise Histories in the API.
+
+## Aerobic Exercise Histories [/aerobic/histories/{user_id}/{aerobic_id}]
+
+A Aerobic Exercise Histories object has the following attributes:
+
++ id - exercise id
++ user_id - user id
++ equipment_id - equipment id
++ total_time - weight training total time
++ distance - a set of weight training time
++ rate - reset time
++ heart_rate - training weight
++ max_heart_rate - times of weight training
++ created
+
++ Parameters
+    + user_id: 1 (required, number) - ID of the user in form of an integer
+    + aerobic_id: 1 (required, number) - ID of the Aerobic Exercise in form of an integer
+
+### View a Aerobic Exercise Histories Detail [GET]
+
++ Response 200 (application/json)
+
+    {
+        "id": 1,
+        "user_id": 1,
+        "equipment_id": 1,
+        "distance": "4232",
+        "rate": "43",
+        "heart_rate": "134",
+        "max_heart_rate": "155",
+        "total_time": "4423",
+        "created: "2018-12-12T08:40:51.620Z"
+    }
+
+## Aerobic Exercise Histories [/aerobic/histories]
+
+### List All Aerobic Exercise Histories [GET]
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 1,
+            "user_id": 1,
+            "equipment_id": 1,
+            "distance": "4232",
+            "rate": "43",
+            "heart_rate": "134",
+            "max_heart_rate": "155",
+            "total_time": "4423",
+            "created: "2018-12-12T08:40:51.620Z"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "equipment_id": 5,
+            "distance": "4233",
+            "rate": "42",
+            "heart_rate": "144",
+            "max_heart_rate": "165",
+            "total_time": "4453",
+            "created: "2018-12-17T08:40:51.620Z"
+        }
+    ]
