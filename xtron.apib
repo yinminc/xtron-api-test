@@ -4,11 +4,60 @@ HOST: https://demo.lyrasoft.net/xtron/api
 # Xtron
 這是 Xtron 健身房 APP 與後台串接的 API。
 
-NOTE: This document is a **work in progress**.
-
 ## Group User
 
 Resources related to users in the API.
+
+## Login [/login]
+
+Login for user:
+
++ mobile - user account(mobile)
++ password - user password
+
+### Login [POST]
+
++ Request 200 (application/json)
+
+    Body
+
+    {
+        "mobile": "0912345678",
+        "password": "1234875765676"
+    }
+
++ Response 201 (application/json)
+
+    Body
+
+    {
+        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+    }
+
+## Logout [/logout]
+
+Logout for user:
+
++ token - token of user
+
+### Logout [POST]
+
++ Request 200 (application/json)
+
+    Body
+
+    {
+        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+    }
+
++ Response 201 (application/json)
+
+    Body
+
+    {
+        "token": ""
+    }
+
 
 ## User [/users/{user_id}]
 
@@ -17,6 +66,7 @@ A User object has the following attributes:
 + id - user id
 + name - user name
 + email - user email
++ mobile - user mobile
 + avatar - user avatar
 + assessment - it is a json data
 + reset_token - to reset password
@@ -38,25 +88,24 @@ A User object has the following attributes:
 
 + Response 200 (application/json)
 
-    + Headers
-
-        token: bearer tGzv3JOkF0XG5Qx2TlKWIA
-
-    + Body
+    Body
 
         {
             "id": 1,
             "name": "Ann",
             "email": "example@example.com",
+            "mobile": "0912345678",
             "avatar": "",
             "assessment"": [
                 {
                     "question": "是否大於45歲？",
                     "answer": "是"
-                }, {
+                },
+                {
                     "question": "是否有心臟遺傳疾病？",
                     "answer": "否"
-                }, {
+                },
+                {
                     "question": "是否有心臟遺傳疾病？",
                     "answer": "不確定"
                 }
@@ -70,7 +119,7 @@ A User object has the following attributes:
             "weight_training": 543,
             "aerobic": 445,
             "group": "高危險族群",
-            "created": "2018-11-11T08:40:51.620Z"
+            "created": "2018-11-11T08:40:51.620Z",
             "modified": "2019-01-11T08:40:51.620Z",
             "membership": [
                 {
@@ -99,7 +148,7 @@ A User object has the following attributes:
 
     + Headers
 
-        token: bearer tGzv3JOkF0XG5Qx2TlKWIA
+        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
 
     + Body
 
@@ -129,16 +178,24 @@ A User object has the following attributes:
 
 + Request (application/json)
 
+    + Headers
+
+        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+
+    + Body
+
         {
             "id": 1,
             "assessment"": [
                 {
                     "question": "是否大於45歲？",
                     "answer": "是"
-                }, {
+                },
+                {
                     "question": "是否有心臟遺傳疾病？",
                     "answer": "否"
-                }, {
+                },
+                {
                     "question": "是否有心臟遺傳疾病？",
                     "answer": "不確定"
                 }
@@ -147,28 +204,25 @@ A User object has the following attributes:
 
 + Response 201 (application/json)
 
-    + Headers
-
-            token: bearer tGzv3JOkF0XG5Qx2TlKWIA
-            Location: /users/1
-
     + Body
 
-            {
-                "id": 1,
-                "assessment"": [
-                    {
-                        "question": "是否大於45歲？",
-                        "answer": "是"
-                    }, {
-                        "question": "是否有心臟遺傳疾病？",
-                        "answer": "否"
-                    }, {
-                        "question": "是否有心臟遺傳疾病？",
-                        "answer": "不確定"
-                    }
-                ]
-            }
+        {
+            "id": 1,
+            "assessment"": [
+                {
+                    "question": "是否大於45歲？",
+                    "answer": "是"
+                },
+                {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "否"
+                },
+                {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "不確定"
+                }
+            ]
+        }
 
 ## Group Store
 
@@ -269,11 +323,8 @@ A Inbody object has the following attributes:
         {
             "id": 1,
             "type": "target"
-            "height": "166",
-            "weight": "44",
-            "fat": "20",
-            "water":  "78",
-            "muscle": "10",
+            "key": "height",
+            "value": "177",
             "user_id": 1,
             "created": "2018-12-12T08:40:51.620Z",
             "modified": "2018-12-19T08:40:51.620Z"
@@ -287,17 +338,18 @@ A Inbody object has the following attributes:
 
 + Request 200 (application/json)
 
+    + Headers
+
+        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+
+    + Body
+
         {
             "id": 1,
             "type": "target"
-            "height": "166",
-            "weight": "",
-            "fat": "",
-            "water":  "",
-            "muscle": "",
-            "user_id": 1,
-            "created": "2018-12-12T08:40:51.620Z",
-            "modified": "2018-12-19T08:40:51.620Z"
+            "key": "height",
+            "value": "177",
+            "user_id": 1
         }
 
 + Response 201 (application/json)
@@ -305,11 +357,8 @@ A Inbody object has the following attributes:
         {
             "id": 1,
             "type": "target"
-            "height": "166",
-            "weight": "44",
-            "fat": "20",
-            "water":  "78",
-            "muscle": "10",
+            "key": "height",
+            "value": "177",
             "user_id": 1,
             "created": "2018-12-12T08:40:51.620Z",
             "modified": "2018-12-19T08:40:51.620Z"
@@ -325,11 +374,8 @@ A Inbody object has the following attributes:
             {
                 "id": 1,
                 "type": "measuring"
-                "height": "166",
-                "weight": "44",
-                "fat": "20",
-                "water":  "78",
-                "muscle": "20",
+                "key": "height",
+                "value": "177",
                 "user_id": 1,
                 "created": "2018-12-12T08:40:51.620Z",
                 "modified": "2018-12-19T08:40:51.620Z"
@@ -337,11 +383,8 @@ A Inbody object has the following attributes:
             {
                 "id": 2,
                 "type": "measuring"
-                "height": "176",
-                "weight": "74",
-                "fat": "23",
-                "water":  "75",
-                "muscle": "30",
+                "key": "height",
+                "value": "167",
                 "user_id": 5,
                 "created": "2018-12-12T08:40:51.620Z",
                 "modified": "2018-12-19T08:40:51.620Z"
