@@ -670,24 +670,60 @@ A Aerobic Exercise Histories object has the following attributes:
 + created
 
 + Parameters
-    + user_id: 1 (required, number) - ID of the user in form of an integer
-    + aerobic_id: 1 (required, number) - ID of the Aerobic Exercise in form of an integer
+    + aerobic_id: 865 (required, number) - ID of the Aerobic Exercise in form of an integer
 
 ### View a Aerobic Exercise Histories Detail [GET]
 
 + Response 200 (application/json)
 
     {
-        "id": 1,
+        "id": 865,
         "user_id": 1,
-        "equipment_id": 1,
-        "distance": "4232",
-        "rate": "43",
-        "heart_rate": "134",
+        "user_mobile": "0912345678",
+        "equipment_id": "104853",
+        "calories": "139",
+        "start_time: "2018-12-12T08:40:51.620Z",
+        "end_time: "2018-12-12T08:40:51.620Z",
         "max_heart_rate": "155",
-        "total_time": "4423",
-        "created: "2018-12-12T08:40:51.620Z"
+        "measure_start: "2018-12-12T08:40:51.620Z",
+        "measure_end: "2018-12-12T08:40:51.620Z"
     }
+
+## Aerobic Exercise Histories Record [/aerobic/records/{aerobic_id}]
+
++ Parameters
+    + aerobic_id: 865 (required, number) - ID of the Aerobic Exercise in form of an integer
+
+### View a Aerobic Exercise Histories Record [GET]
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 1,
+            "aerobic_id": 865,
+            "record_time": "2018-12-12T08:40:51.620Z",
+            "heart_rate": "155",
+        },
+        {
+            "id": 2,
+            "aerobic_id": 865,
+            "record_time": "2018-12-12T08:40:51.620Z",
+            "heart_rate": "155",
+        },
+        {
+            "id": 3,
+            "aerobic_id": 865,
+            "record_time": "2018-12-12T08:40:51.620Z",
+            "heart_rate": "155",
+        },
+        {
+            "id": 4,
+            "aerobic_id": 865,
+            "record_time": "2018-12-12T08:40:51.620Z",
+            "heart_rate": "155",
+        }
+    ]
 
 ## Aerobic Exercise Histories [/aerobic/histories]
 
@@ -697,25 +733,27 @@ A Aerobic Exercise Histories object has the following attributes:
 
     [
         {
-            "id": 1,
+            "id": 865,
             "user_id": 1,
-            "equipment_id": 1,
-            "distance": "4232",
-            "rate": "43",
-            "heart_rate": "134",
+            "user_mobile": "0912345678",
+            "equipment_id": "104853",
+            "calories": "139",
+            "start_time: "2018-12-12T08:40:51.620Z",
+            "end_time: "2018-12-12T08:40:51.620Z",
             "max_heart_rate": "155",
-            "total_time": "4423",
-            "created: "2018-12-12T08:40:51.620Z"
+            "measure_start: "2018-12-12T08:40:51.620Z",
+            "measure_end: "2018-12-12T08:40:51.620Z"
         },
         {
-            "id": 2,
+            "id": 867,
             "user_id": 1,
-            "equipment_id": 5,
-            "distance": "4233",
-            "rate": "42",
-            "heart_rate": "144",
-            "max_heart_rate": "165",
-            "total_time": "4453",
-            "created: "2018-12-17T08:40:51.620Z"
+            "user_mobile": "0912345678",
+            "equipment_id": "104853",
+            "calories": "139",
+            "start_time: "2018-12-12T08:40:51.620Z",
+            "end_time: "2018-12-12T08:40:51.620Z",
+            "max_heart_rate": "155",
+            "measure_start: "2018-12-12T08:40:51.620Z",
+            "measure_end: "2018-12-12T08:40:51.620Z"
         }
     ]
