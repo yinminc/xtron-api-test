@@ -31,7 +31,7 @@ Login for user:
     Body
 
     {
-        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+        "token": "tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2Tl"
     }
 
 ## Logout [/logout]
@@ -47,7 +47,7 @@ Logout for user:
     Body
 
     {
-        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+        "token": "tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2Tl"
     }
 
 + Response 201 (application/json)
@@ -59,7 +59,7 @@ Logout for user:
     }
 
 
-## User [/users/{user_id}]
+## User [/user]
 
 A User object has the following attributes:
 
@@ -81,14 +81,9 @@ A User object has the following attributes:
 + created
 + modified
 
-+ Parameters
-    + user_id: 1 (required, number) - ID of the user in form of an integer
-
 ### View a User Detail [GET]
 
 + Response 200 (application/json)
-
-    Body
 
         {
             "id": 1,
@@ -122,20 +117,8 @@ A User object has the following attributes:
             "created": "2018-11-11T08:40:51.620Z",
             "modified": "2019-01-11T08:40:51.620Z",
             "membership": [
-                {
-                    "store_id": 1,
-                    "start_date": "2018-12-12T08:40:51.620Z",
-                    "end_date": "2019-12-12T08:40:51.620Z",
-                    "created": "2018-12-12T08:40:51.620Z",
-                    "modified": "2019-01-12T08:40:51.620Z"
-                },
-                {
-                    "store_id": 2,
-                    "start_date": "2018-12-12T08:40:51.620Z",
-                    "end_date": "2019-12-12T08:40:51.620Z",
-                    "created": "2018-12-12T08:40:51.620Z",
-                    "modified": "2019-01-12T08:40:51.620Z"
-                }
+                "start_date": "2018-12-12T08:40:51.620Z",
+                "end_date": "2019-12-12T08:40:51.620Z"
             ]
         }
 
@@ -148,15 +131,20 @@ A User object has the following attributes:
 
     + Headers
 
-        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+        "token": "tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIA"
 
     + Body
 
         {
-            "id": 1,
-            "name": "Ann",
-            "email": "example@example.com",
-            "avatar": "",
+            "user": {
+                "name": "Ann",
+                "email": "example@example.com",
+                "avatar": "",
+                "login_count": 134,
+                "login_amount": 4567,
+                "weight_training": 543,
+                "aerobic": 445
+            }
         }
 
 + Response 201 (application/json)
@@ -167,7 +155,37 @@ A User object has the following attributes:
             "id": 1,
             "name": "Ann",
             "email": "example@example.com",
+            "mobile": "0912345678",
             "avatar": "",
+            "assessment"": [
+                {
+                    "question": "是否大於45歲？",
+                    "answer": "是"
+                },
+                {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "否"
+                },
+                {
+                    "question": "是否有心臟遺傳疾病？",
+                    "answer": "不確定"
+                }
+            ],
+            "reset_token": "",
+            "state": 1,
+            "login_count": 134,
+            "login_amount": 4567,
+            "last_login": "2018-12-12T08:40:51.620Z",
+            "resting": 56,
+            "weight_training": 543,
+            "aerobic": 445,
+            "group": "高危險族群",
+            "created": "2018-11-11T08:40:51.620Z",
+            "modified": "2019-01-11T08:40:51.620Z",
+            "membership": [
+                "start_date": "2018-12-12T08:40:51.620Z",
+                "end_date": "2019-12-12T08:40:51.620Z"
+            ]
         }
 
 ### Choose the answer of user assessment [POST]
@@ -180,13 +198,12 @@ A User object has the following attributes:
 
     + Headers
 
-        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+        "token": "tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIA"
 
     + Body
 
         {
-            "id": 1,
-            "assessment"": [
+            "assessment": [
                 {
                     "question": "是否大於45歲？",
                     "answer": "是"
@@ -208,6 +225,10 @@ A User object has the following attributes:
 
         {
             "id": 1,
+            "name": "Ann",
+            "email": "example@example.com",
+            "mobile": "0912345678",
+            "avatar": "",
             "assessment"": [
                 {
                     "question": "是否大於45歲？",
@@ -221,6 +242,21 @@ A User object has the following attributes:
                     "question": "是否有心臟遺傳疾病？",
                     "answer": "不確定"
                 }
+            ],
+            "reset_token": "",
+            "state": 1,
+            "login_count": 134,
+            "login_amount": 4567,
+            "last_login": "2018-12-12T08:40:51.620Z",
+            "resting": 56,
+            "weight_training": 543,
+            "aerobic": 445,
+            "group": "高危險族群",
+            "created": "2018-11-11T08:40:51.620Z",
+            "modified": "2019-01-11T08:40:51.620Z",
+            "membership": [
+                "start_date": "2018-12-12T08:40:51.620Z",
+                "end_date": "2019-12-12T08:40:51.620Z"
             ]
         }
 
@@ -228,7 +264,7 @@ A User object has the following attributes:
 
 Resources related to store in the API.
 
-## Store [/stores/{store_id}]
+## Store [/store/{store_id}]
 
 A Store object has the following attributes:
 
@@ -296,7 +332,7 @@ A Store object has the following attributes:
 
 Resources related to inbody in the API.
 
-## Inbody [/inbodies/{user_id}/{inbody_id}]
+## Inbody [/inbody/{inbody_id}]
 
 A Inbody object has the following attributes:
 
@@ -313,7 +349,6 @@ A Inbody object has the following attributes:
 
 + Parameters
     + inbody_id: 1 (required, number) - ID of the inbody in form of an integer
-    + user_id: 1 (required, number) - ID of the user in form of an integer
 
 ### View a Inbody Detail [GET]
 
@@ -331,7 +366,6 @@ A Inbody object has the following attributes:
 
 + Parameters
     + inbody_id: 1 (required, number) - ID of the inbody in form of an integer
-    + user_id: 1 (required, number) - ID of the user in form of an integer
 
 ### Change data of inbody [POST]
 
@@ -339,7 +373,7 @@ A Inbody object has the following attributes:
 
     + Headers
 
-        "token": "bearer tGzv3JOkF0XG5Qx2TlKWIA"
+        "token": "tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIA"
 
     + Body
 

@@ -17,7 +17,7 @@
 }</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>Body
 
 {
-    <span class="hljs-string">"token"</span>: <span class="hljs-string">"bearer tGzv3JOkF0XG5Qx2TlKWIA"</span>
+    <span class="hljs-string">"token"</span>: <span class="hljs-string">"tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2Tl"</span>
 }</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="user-logout" class="resource"><h3 class="resource-heading">Logout <a href="#user-logout" class="permalink">&nbsp;&para;</a></h3><p>Logout for user:</p>
 <ul>
 <li>token - token of user</li>
@@ -25,7 +25,7 @@
 <div id="user-logout-post" class="action post"><h4 class="action-heading"><div class="name">Logout</div><a href="#user-logout-post" class="method post">POST</a><code class="uri">/logout</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/logout</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>Body
 
 {
-    <span class="hljs-string">"token"</span>: <span class="hljs-string">"bearer tGzv3JOkF0XG5Qx2TlKWIA"</span>
+    <span class="hljs-string">"token"</span>: <span class="hljs-string">"tGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2TlKWIAtGzv3JOkF0XG5Qx2Tl"</span>
 }</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>Body
 
 {
@@ -84,68 +84,88 @@
 <p>modified</p>
 </li>
 </ul>
-<div id="user-user-get" class="action get"><h4 class="action-heading"><div class="name">View a User Detail</div><a href="#user-user-get" class="method get">GET</a><code class="uri">/users/{user_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/users/<span class="hljs-attribute" title="user_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
-</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>Body
-
-{
-    "id": 1,
-    "name": "Ann",
-    "email": "example@example.com",
-    "mobile": "0912345678",
-    "avatar": "",
-    "assessment"": [
+<div id="user-user-get" class="action get"><h4 class="action-heading"><div class="name">View a User Detail</div><a href="#user-user-get" class="method get">GET</a><code class="uri">/user</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/user</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ann"</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"example@example.com"</span></span>,
+    "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"0912345678"</span></span>,
+    "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">assessment"</span>": <span class="hljs-value">[
         {
-            "question": "是否大於45歲？",
-            "answer": "是"
-        },
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否大於45歲？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"是"</span>
+        </span>},
         {
-            "question": "是否有心臟遺傳疾病？",
-            "answer": "否"
-        },
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"否"</span>
+        </span>},
         {
-            "question": "是否有心臟遺傳疾病？",
-            "answer": "不確定"
-        }
-    ],
-    "reset_token": "",
-    "state": 1,
-    "login_count": 134,
-    "login_amount": 4567,
-    "last_login": "2018-12-12T08:40:51.620Z",
-    "resting": 56,
-    "weight_training": 543,
-    "aerobic": 445,
-    "group": "高危險族群",
-    "created": "2018-11-11T08:40:51.620Z",
-    "modified": "2019-01-11T08:40:51.620Z",
-    "membership": [
-        {
-            "store_id": 1,
-            "start_date": "2018-12-12T08:40:51.620Z",
-            "end_date": "2019-12-12T08:40:51.620Z",
-            "created": "2018-12-12T08:40:51.620Z",
-            "modified": "2019-01-12T08:40:51.620Z"
-        },
-        {
-            "store_id": 2,
-            "start_date": "2018-12-12T08:40:51.620Z",
-            "end_date": "2019-12-12T08:40:51.620Z",
-            "created": "2018-12-12T08:40:51.620Z",
-            "modified": "2019-01-12T08:40:51.620Z"
-        }
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"不確定"</span>
+        </span>}
+    ]</span>,
+    "<span class="hljs-attribute">reset_token</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">login_count</span>": <span class="hljs-value"><span class="hljs-number">134</span></span>,
+    "<span class="hljs-attribute">login_amount</span>": <span class="hljs-value"><span class="hljs-number">4567</span></span>,
+    "<span class="hljs-attribute">last_login</span>": <span class="hljs-value"><span class="hljs-string">"2018-12-12T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">resting</span>": <span class="hljs-value"><span class="hljs-number">56</span></span>,
+    "<span class="hljs-attribute">weight_training</span>": <span class="hljs-value"><span class="hljs-number">543</span></span>,
+    "<span class="hljs-attribute">aerobic</span>": <span class="hljs-value"><span class="hljs-number">445</span></span>,
+    "<span class="hljs-attribute">group</span>": <span class="hljs-value"><span class="hljs-string">"高危險族群"</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"2018-11-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">membership</span>": <span class="hljs-value">[
+        <span class="hljs-string">"start_date"</span>: <span class="hljs-string">"2018-12-12T08:40:51.620Z"</span>,
+        <span class="hljs-string">"end_date"</span>: <span class="hljs-string">"2019-12-12T08:40:51.620Z"</span>
     ]
-}</code></pre><div style="height: 1px;"></div></div></div></div><div id="user-user-post" class="action post"><h4 class="action-heading"><div class="name">Change User's Detail</div><a href="#user-user-post" class="method post">POST</a><code class="uri">/users/{user_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/users/<span class="hljs-attribute" title="user_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
-</dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="user-user-post" class="action post"><h4 class="action-heading"><div class="name">Change User's Detail</div><a href="#user-user-post" class="method post">POST</a><code class="uri">/user</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/user</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ann"</span></span>,
     "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"example@example.com"</span></span>,
     "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">login_count</span>": <span class="hljs-value"><span class="hljs-number">134</span></span>,
+    "<span class="hljs-attribute">login_amount</span>": <span class="hljs-value"><span class="hljs-number">4567</span></span>,
+    "<span class="hljs-attribute">weight_training</span>": <span class="hljs-value"><span class="hljs-number">543</span></span>,
+    "<span class="hljs-attribute">aerobic</span>": <span class="hljs-value"><span class="hljs-number">445</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ann"</span></span>,
     "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"example@example.com"</span></span>,
+    "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"0912345678"</span></span>,
     "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-}</code></pre><div style="height: 1px;"></div></div></div></div><div id="user-user-post-1" class="action post"><h4 class="action-heading"><div class="name">Choose the answer of user assessment</div><a href="#user-user-post-1" class="method post">POST</a><code class="uri">/users/{user_id}</code></h4><ul>
+    "<span class="hljs-attribute">assessment"</span>": <span class="hljs-value">[
+        {
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否大於45歲？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"是"</span>
+        </span>},
+        {
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"否"</span>
+        </span>},
+        {
+            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"不確定"</span>
+        </span>}
+    ]</span>,
+    "<span class="hljs-attribute">reset_token</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">login_count</span>": <span class="hljs-value"><span class="hljs-number">134</span></span>,
+    "<span class="hljs-attribute">login_amount</span>": <span class="hljs-value"><span class="hljs-number">4567</span></span>,
+    "<span class="hljs-attribute">last_login</span>": <span class="hljs-value"><span class="hljs-string">"2018-12-12T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">resting</span>": <span class="hljs-value"><span class="hljs-number">56</span></span>,
+    "<span class="hljs-attribute">weight_training</span>": <span class="hljs-value"><span class="hljs-number">543</span></span>,
+    "<span class="hljs-attribute">aerobic</span>": <span class="hljs-value"><span class="hljs-number">445</span></span>,
+    "<span class="hljs-attribute">group</span>": <span class="hljs-value"><span class="hljs-string">"高危險族群"</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"2018-11-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">membership</span>": <span class="hljs-value">[
+        <span class="hljs-string">"start_date"</span>: <span class="hljs-string">"2018-12-12T08:40:51.620Z"</span>,
+        <span class="hljs-string">"end_date"</span>: <span class="hljs-string">"2019-12-12T08:40:51.620Z"</span>
+    ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="user-user-post-1" class="action post"><h4 class="action-heading"><div class="name">Choose the answer of user assessment</div><a href="#user-user-post-1" class="method post">POST</a><code class="uri">/user</code></h4><ul>
 <li>
 <p>assessment (array[object])</p>
 </li>
@@ -156,25 +176,27 @@
 <p>answer (string) - the user answer of question.</p>
 </li>
 </ul>
-<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/users/<span class="hljs-attribute" title="user_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
-</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">assessment"</span>": <span class="hljs-value">[
-        {
-            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否大於45歲？"</span></span>,
-            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"是"</span>
-        </span>},
-        {
-            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
-            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"否"</span>
-        </span>},
-        {
-            "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
-            "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"不確定"</span>
-        </span>}
-    ]
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/user</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">assessment</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否大於45歲？"</span></span>,
+      "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"是"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+      "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"否"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
+      "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"不確定"</span>
+    </span>}
+  ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ann"</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"example@example.com"</span></span>,
+    "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"0912345678"</span></span>,
+    "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
     "<span class="hljs-attribute">assessment"</span>": <span class="hljs-value">[
         {
             "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否大於45歲？"</span></span>,
@@ -188,6 +210,21 @@
             "<span class="hljs-attribute">question</span>": <span class="hljs-value"><span class="hljs-string">"是否有心臟遺傳疾病？"</span></span>,
             "<span class="hljs-attribute">answer</span>": <span class="hljs-value"><span class="hljs-string">"不確定"</span>
         </span>}
+    ]</span>,
+    "<span class="hljs-attribute">reset_token</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">login_count</span>": <span class="hljs-value"><span class="hljs-number">134</span></span>,
+    "<span class="hljs-attribute">login_amount</span>": <span class="hljs-value"><span class="hljs-number">4567</span></span>,
+    "<span class="hljs-attribute">last_login</span>": <span class="hljs-value"><span class="hljs-string">"2018-12-12T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">resting</span>": <span class="hljs-value"><span class="hljs-number">56</span></span>,
+    "<span class="hljs-attribute">weight_training</span>": <span class="hljs-value"><span class="hljs-number">543</span></span>,
+    "<span class="hljs-attribute">aerobic</span>": <span class="hljs-value"><span class="hljs-number">445</span></span>,
+    "<span class="hljs-attribute">group</span>": <span class="hljs-value"><span class="hljs-string">"高危險族群"</span></span>,
+    "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"2018-11-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-11T08:40:51.620Z"</span></span>,
+    "<span class="hljs-attribute">membership</span>": <span class="hljs-value">[
+        <span class="hljs-string">"start_date"</span>: <span class="hljs-string">"2018-12-12T08:40:51.620Z"</span>,
+        <span class="hljs-string">"end_date"</span>: <span class="hljs-string">"2019-12-12T08:40:51.620Z"</span>
     ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="store" class="resource-group"><h2 class="group-heading">Store <a href="#store" class="permalink">&para;</a></h2><p>Resources related to store in the API.</p>
 <div id="store-store" class="resource"><h3 class="resource-heading">Store <a href="#store-store" class="permalink">&nbsp;&para;</a></h3><p>A Store object has the following attributes:</p>
@@ -220,7 +257,7 @@
 <p>modified</p>
 </li>
 </ul>
-<div id="store-store-get" class="action get"><h4 class="action-heading"><div class="name">View a Store Detail</div><a href="#store-store-get" class="method get">GET</a><code class="uri">/stores/{store_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/stores/<span class="hljs-attribute" title="store_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>store_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the store in form of an integer</p>
+<div id="store-store-get" class="action get"><h4 class="action-heading"><div class="name">View a Store Detail</div><a href="#store-store-get" class="method get">GET</a><code class="uri">/store/{store_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/store/<span class="hljs-attribute" title="store_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>store_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the store in form of an integer</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"永和店"</span></span>,
@@ -288,8 +325,7 @@
 <p>user_id</p>
 </li>
 </ul>
-<div id="inbody-inbody-get" class="action get"><h4 class="action-heading"><div class="name">View a Inbody Detail</div><a href="#inbody-inbody-get" class="method get">GET</a><code class="uri">/inbodies/{user_id}/{inbody_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/inbodies/<span class="hljs-attribute" title="user_id">1</span>/<span class="hljs-attribute" title="inbody_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>inbody_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the inbody in form of an integer</p>
-</dd><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
+<div id="inbody-inbody-get" class="action get"><h4 class="action-heading"><div class="name">View a Inbody Detail</div><a href="#inbody-inbody-get" class="method get">GET</a><code class="uri">/inbody/{inbody_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/inbody/<span class="hljs-attribute" title="inbody_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>inbody_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the inbody in form of an integer</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"target"</span>
@@ -298,8 +334,7 @@
     "<span class="hljs-attribute">user_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">created</span>": <span class="hljs-value"><span class="hljs-string">"2018-12-12T08:40:51.620Z"</span></span>,
     "<span class="hljs-attribute">modified</span>": <span class="hljs-value"><span class="hljs-string">"2018-12-19T08:40:51.620Z"</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="inbody-inbody-post" class="action post"><h4 class="action-heading"><div class="name">Change data of inbody</div><a href="#inbody-inbody-post" class="method post">POST</a><code class="uri">/inbodies/{user_id}/{inbody_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/inbodies/<span class="hljs-attribute" title="user_id">1</span>/<span class="hljs-attribute" title="inbody_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>inbody_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the inbody in form of an integer</p>
-</dd><dt>user_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the user in form of an integer</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="inbody-inbody-post" class="action post"><h4 class="action-heading"><div class="name">Change data of inbody</div><a href="#inbody-inbody-post" class="method post">POST</a><code class="uri">/inbody/{inbody_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://demo.lyrasoft.net/xtron/api</span>/inbody/<span class="hljs-attribute" title="inbody_id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>inbody_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>ID of the inbody in form of an integer</p>
 </dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"target"</span>
@@ -670,7 +705,7 @@
         "measure_start: "2018-12-12T08:40:51.620Z",
         "measure_end: "2018-12-12T08:40:51.620Z"
     }
-]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 22 May 2019</p><script>/* eslint-env browser */
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 28 May 2019</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
